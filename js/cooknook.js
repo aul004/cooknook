@@ -5,23 +5,28 @@ const default_theme = {
 	dockColor: '#000000'
 }
 const ingredients_search_theme = {
-	mainColor: '#00dd00',
+	mainColor: '#A8DFA6',
 	textColor: '#ffffff',
-	dockColor: '#00ff00'
+	dockColor: '#A8DFA6'
 }
 const recipe_search_theme = {
-	mainColor: '#dddd00',
+	mainColor: '#FFD992',
 	textColor: '#ffffff',
-	dockColor: '#ffff00'
+	dockColor: '#FFD992'
 }
 const social_search_theme = {
-	mainColor: '#0000dd',
+	mainColor: '#A2D9FF',
 	textColor: '#ffffff',
-	dockColor: '#0000ff'
+	dockColor: '#A2D9FF'
+}
+const shopping_list_theme = {
+	mainColor: '#FFAAAA',
+	textColor: '#ffffff',
+	dockColor: '#FFAAAA'
 }
 
+/************** general section ****************/
 var colHeight = window.innerHeight - 40 - $("#top_nav").height() -$("#bottom_nav").height() - 40;
-
 function changeTheme(theme) {
 	currentTheme = theme;
 		$('#dock').css('background-color', theme.dockColor);
@@ -39,7 +44,6 @@ function changeTheme(theme) {
 	}
 }
 
-/************** general section ****************/
 function generateColumns() {
 	var column = document.createElement('div');
 	column.className = 'column';
@@ -57,12 +61,6 @@ function generateColumns() {
 }
 
 /************** auto section ****************/
-// $(window).resize(resizePageContent);
-
-// function resizePageContent() {
-// 	var dockHeight = $("#navbarToggleExternalContent").hasClass('show') ? 40 : $("#navbarToggleExternalContent").height();
-// 	// $('.column').css("height", window.innerHeight - dockHeight - $("#top_nav").height() -$("#bottom_nav").height() - 80);
-// }
 function resizeColumnHeight() {
 	var dockHeight = $("#navbarToggleExternalContent").hasClass('show') ? 40 : $("#navbarToggleExternalContent").height();
 	colHeight = window.innerHeight - dockHeight - $("#top_nav").height() -$("#bottom_nav").height() - 10;
@@ -78,6 +76,7 @@ var currentTheme = default_theme;
 dockToggleButton.onclick = resizeColumnHeight;
 // $('#dock').css('background-color', currentTheme.dockColor);
 changeTheme(currentTheme);
-$('#ingredients_search').click(function(){changeTheme(ingredients_search_theme); ingredients_page_setup(); });
-$('#recipe_search').click(function(){changeTheme(recipe_search_theme)});
-$('#social_search').click(function(){changeTheme(social_search_theme)});
+$('#ingredients_search').click(function(){changeTheme(ingredients_search_theme); ingredients_page_setup();removeSplash();});
+$('#recipe_search').click(function(){changeTheme(recipe_search_theme);removeSplash();});
+$('#social_search').click(function(){changeTheme(social_search_theme);removeSplash();});
+$('#shopping_list').click(function(){changeTheme(shopping_list_theme);removeSplash();});
