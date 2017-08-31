@@ -1,0 +1,52 @@
+.column {
+	border-radius: 7px;
+	/* border: 10px solid; */
+	padding: 10px;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	height:100%;
+	/* display: flex; */
+	/* float: left;  */
+}
+
+.dockbtn {
+	display: inline;
+	height: 100px;
+	width: 100px;
+	border-radius: 50%;
+	border: 1px solid red;
+	margin: auto;
+  }
+
+/*
+    border-radius: 25px;
+    border: 2px solid #73AD21;
+    padding: 20px;
+    width: 200px;
+    height: 150px;
+*/
+
+.column_wrapper {
+	padding: 10px;
+	float: left;
+	height: auto;
+} 
+
+body {
+	color: white;
+    position: fixed; 
+    overflow: hidden;
+    width: 100%;
+}
+
+#page_viewer {
+	width: 100%;
+	/* padding: 20px; */
+	position: fixed; 
+    overflow: hidden;
+}
+#dockToggleButton {
+	width: 100px;
+	bottom: 0px;
+	/*position: absolute;*/
+}
