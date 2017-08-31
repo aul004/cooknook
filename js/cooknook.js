@@ -2,7 +2,7 @@
 const default_theme = {
 	mainColor: '#d3e2ed',
 	textColor: '#424242',
-	dockColor: '#000000'
+	dockColor: '#d3e2ed'
 }
 const ingredients_search_theme = {
 	mainColor: '#A8DFA6',
@@ -26,7 +26,7 @@ const shopping_list_theme = {
 }
 
 /************** general section ****************/
-var colHeight = window.innerHeight - 40 - $("#top_nav").height() -$("#bottom_nav").height() - 40;
+var colHeight = window.innerHeight - $("#navbarToggleExternalContent").height() - $("#top_nav").height() -$("#bottom_nav").height() - 40;
 function changeTheme(theme) {
 	currentTheme = theme;
 		$('#dock').css('background-color', theme.dockColor);
@@ -80,3 +80,7 @@ $('#ingredients_search').click(function(){changeTheme(ingredients_search_theme);
 $('#recipe_search').click(function(){changeTheme(recipe_search_theme);removeSplash();});
 $('#social_search').click(function(){changeTheme(social_search_theme);removeSplash();});
 $('#shopping_list').click(function(){changeTheme(shopping_list_theme);removeSplash();});
+
+window.onresize = function () {
+	resizeDock();
+}
