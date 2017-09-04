@@ -103,9 +103,12 @@ var ingredients_search_stage_functions = {
 
 // will rename this later >__>
 function populate_col_1() {
+	var input = document.createElement("input");
+	ingredients_search_col_1.appendChild(input);
 	var button = document.createElement('button');
 	button.innerHTML = 'Search';
 	ingredients_search_col_1.appendChild(button);
+	
 }
 
 function ingredients_page_hide() {
