@@ -1,23 +1,23 @@
 /************** color section ****************/
 const default_theme = {
-	mainColor: '#d3e2ed',
+	mainColor: '#B28B5C',
 	textColor: '#424242',
-	dockColor: '#d3e2ed'
+	dockColor: '#B28B5C'
 }
 const ingredients_search_theme = {
-	mainColor: '#A8DFA6',
+	mainColor: '#7CAF7B',
 	textColor: '#ffffff',
-	dockColor: '#A8DFA6'
+	dockColor: '#7CAF7B'
 }
 const recipe_search_theme = {
-	mainColor: '#FFD992',
+	mainColor: '#FFD574',
 	textColor: '#ffffff',
-	dockColor: '#FFD992'
+	dockColor: '#FFD574'
 }
 const social_search_theme = {
-	mainColor: '#A2D9FF',
+	mainColor: '#6FCBFF',
 	textColor: '#ffffff',
-	dockColor: '#A2D9FF'
+	dockColor: '#6FCBFF'
 }
 const shopping_list_theme = {
 	mainColor: '#FFAAAA',
@@ -29,18 +29,25 @@ const shopping_list_theme = {
 var colHeight = window.innerHeight - $("#navbarToggleExternalContent").height() - $("#top_nav").height() -$("#bottom_nav").height() - 40;
 function changeTheme(theme) {
 	currentTheme = theme;
-		$('#dock').css('background-color', theme.dockColor);
-		$('#SignupForm').css('background-color', theme.dockColor);
-		$('#LoginForm').css('background-color', theme.dockColor);
+	$('#dock').css('background-color', theme.dockColor);
+	$('#SignupForm').css('background-color', theme.dockColor);
+	$('#LoginForm').css('background-color', theme.dockColor);
 	switch (theme) {
 		case ingredients_search_theme:
-			ingredients_page_setup();
-			break;
+		ingredients_page_setup();
+		break;
 		case recipe_search_theme:
-			ingredients_page_hide();
-			break;
+		ingredients_page_hide();
+		break;
+		case social_search_theme:
+		ingredients_page_hide();
+		break;
+		case shopping_list_theme:
+		ingredients_page_hide();
+		break;
+		
 		default:
-			break;
+		break;
 	}
 }
 
@@ -66,7 +73,7 @@ function resizeColumnHeight() {
 	colHeight = window.innerHeight - dockHeight - $("#top_nav").height() -$("#bottom_nav").height() - 10;
 	$('#page_viewer').css("height", colHeight);
 	$('.column_wrapper').animate({
-        height: colHeight,
+		height: colHeight,
 	});
 }
 
@@ -84,3 +91,12 @@ $('#shopping_list').click(function(){changeTheme(shopping_list_theme);removeSpla
 window.onresize = function () {
 	resizeDock();
 }
+
+//Toggle show/hide dock button
+$(".togglemenu").click(function () {
+	var $element = $(this);
+	$element.text(function(i, text) {
+		return text == $element.data('default-text') ? $element.data('new-text')
+		: $element.data('default-text');
+	});
+});
