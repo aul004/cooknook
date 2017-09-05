@@ -9,6 +9,10 @@
 	/* float: left;  */
 }
 
+
+.form-inline {
+	padding: 5px;
+}
 .dockbtn {
 	display: inline;
 	height: 100px;
@@ -41,4 +45,21 @@ body {
 	width: 100px;
 	bottom: 0px;
 	/*position: absolute;*/
+}
+
+.delete {
+    background: red;
+    border-radius: 50%;
+}
+
+li {
+	font-family: 'Lato', sans-serif;
+}
+
+h5 {
+	font-family: 'Lato', sans-serif;
+}
+
+button {
+	font-family: 'Lato', sans-serif;
 }
