@@ -215,10 +215,27 @@ function ingredients_populate_col_1() {
 		if (text.length < 1)
 			return;
 		var li = document.createElement('li');
-		li.innerHTML = "<label>" + text + "</label>" + 
-		"<button class='delete'>X</button>";
 		document.getElementById('ingList').appendChild(li);
+<<<<<<< HEAD
 		document.getElementById("ingredient").value = '';
+=======
+
+		var label = document.createElement('label');
+		label.innerHTML = text;
+		li.appendChild(label);
+
+		var deleteButton = document.createElement('button');
+		deleteButton.className = 'delete';
+		deleteButton.innerHTML = 'x';
+		deleteButton.onclick = function(){
+			document.getElementById('ingList').removeChild(this.parentElement);
+		}
+		li.appendChild(deleteButton);
+
+		// li.innerHTML = "<label>" + text + "</label>" + 
+		// "<button class='delete'>X</button>";
+		
+>>>>>>> f07f8bff1f19ef062c51f2097cadea62aff9fe43
 	}
 
 	document.getElementById('addIngredient').onclick = addIng;
