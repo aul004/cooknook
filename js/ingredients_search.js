@@ -129,9 +129,23 @@ function ingredients_populate_col_1() {
 		if (text.length < 1)
 			return;
 		var li = document.createElement('li');
-		li.innerHTML = "<label>" + text + "</label>" + 
-		"<button class='delete'>X</button>";
 		document.getElementById('ingList').appendChild(li);
+
+		var label = document.createElement('label');
+		label.innerHTML = text;
+		li.appendChild(label);
+
+		var deleteButton = document.createElement('button');
+		deleteButton.className = 'delete';
+		deleteButton.innerHTML = 'x';
+		deleteButton.onclick = function(){
+			document.getElementById('ingList').removeChild(this.parentElement);
+		}
+		li.appendChild(deleteButton);
+
+		// li.innerHTML = "<label>" + text + "</label>" + 
+		// "<button class='delete'>X</button>";
+		
 	}
 
 	document.getElementById('addIngredient').onclick = addIng;
