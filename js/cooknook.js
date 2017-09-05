@@ -91,7 +91,8 @@ function resizeColumnHeight() {
 
 var currentTheme = default_theme;
 /************** dock section ****************/
-
+resizeColumnHeight();
+resizeColumnHeight();
 dockToggleButton.onclick = resizeColumnHeight;
 // $('#dock').css('background-color', currentTheme.dockColor);
 changeTheme(currentTheme);

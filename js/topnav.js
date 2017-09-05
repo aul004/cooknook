@@ -114,8 +114,6 @@ function signupLogin() {
     document.getElementById('userInfo').appendChild(signupForm());
 }
 
-
-
 /********** login sign up stuff  ***************/
 
 function logIn() {
@@ -147,4 +145,3 @@ function logIn() {
 }
 
 signupLogin();
-//$('#userInfo')
