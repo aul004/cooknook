@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>CookNook</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/bootstrap.min.css"> 
+        <link rel="stylesheet" href="css/cooknook.css">
+        <link href="https://fonts.googleapis.com/css?family=Righteous|Lato" rel="stylesheet">
+    </head>
+    <body>
+        <!-- top nav -->
+        <nav class="navbar navbar-toggleable-md" id="top_nav">
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <a class="navbar-brand" href="#" id='logo_goes_here'></a>
+            <!-- <a class="navbar-brand" href="#"><img src="img/logo.jpg" width="100px"></img></a> -->
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav mr-auto"></ul>
+                <ul class="navbar-nav" style="top:0px">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="Login" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+                            Login
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink" id="LoginForm">
+                            <form class="form-inline" style="padding: 5px">
+                                <input class="form-control mr-sm-2" type="text" placeholder="Username" >
+                                <input class="form-control mr-sm-2" type="password" placeholder="Password">
+                                <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style="margin: auto; background-color: white;">Login</button>
+                            </form>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="SignUp" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Create Account
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="SignUp" id="SignupForm">
+                            <form class="form-inline" style="padding: 5px">
+                                <input class="form-control mr-sm-2" type="text" placeholder="Username" >
+                                <input class="form-control mr-sm-2" type="password" placeholder="Password">
+                                <input class="form-control mr-sm-2" type="password" placeholder="Confirm Password">
+                                <input class="form-control mr-sm-2" type="date" placeholder="Email Address">
+                                <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style="margin: auto; background-color: white;">Sign Up</button>
+                            </form>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        
+        <div class="container text-center" id="page_viewer"></div>
+        
+        <div class="pos-f-t">
+            <div class="collapse show fixed-bottom" id="navbarToggleExternalContent">
+                <div class="p-4" id="dock" style=" margin: auto; border-radius: 7px;">
+                    <div class="mr-auto text-center" style="width:100%;">
+                        <span class="col-md-3"><a href="#"><button class="dockbtn" id="ingredients_search">Ingredients Search</button></a></span>
+                        <span class="col-md-3"><a href="#"><button class="dockbtn" id="recipe_search">Recipe Search</button></a></span>
+                        <span class="col-md-3"><a href="#"><button class="dockbtn" id="social_search">Social Search</button></a></span>
+                        <span class="col-md-3"><a href="#"><button class="dockbtn" id="shopping_list">Shopping List</button></a></span>
+                    </div>  
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item"><a href="#">&nbsp;</a></li>
+                    </ul>
+                </div>
+          </div>
+          <nav class="navbar navbar-light fixed-bottom" id="bottom_nav" >
+            <button type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation" id="dockToggleButton" class="togglemenu" style="margin: auto;" data-default-text="Show Menu" data-new-text="Hide Menu">
+                Hide Menu</button>
+            </input>
+          </nav>
+        </div>
+
+        <!-- scripts section -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/cooknook.js"></script>
+        <script src="js/splash.js"></script>
+        <script src="js/dock.js"></script>
+        <script src="js/ingredients_search.js"></script>
+
+    </body>
+</html>

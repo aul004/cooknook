@@ -25,6 +25,13 @@ var ingredients_search_col_3;
 var ingredients_search_page;
 var queue = true;
 
+var input = document.createElement("input");
+
+var button = document.createElement('button');
+
+var list = document.createElement('ul');
+
+
 var ingredients_search_stage_functions = {
 	// *ingredients + *search results + recipe
 	stageD: function () {
@@ -57,6 +64,9 @@ var ingredients_search_stage_functions = {
 		if(ingredients_search_col_3 == undefined) {
 			ingredients_search_col_3 = generateColumns();
 			ingredients_search_page.append(ingredients_search_col_3.parentElement);
+			var title = document.createElement("h5");
+			title.innerHTML = "Guacamole";
+			ingredients_search_col_3.appendChild(title);
 			changeTheme(currentTheme);;
 		}
 
@@ -79,6 +89,10 @@ var ingredients_search_stage_functions = {
 		if(ingredients_search_col_2 == undefined){
 			ingredients_search_col_2 = generateColumns();
 			ingredients_search_page.append(ingredients_search_col_2.parentElement);
+			var title = document.createElement("h5");
+			title.innerHTML = "You can make...";
+			ingredients_search_col_2.appendChild(title);
+			//put populate col 2 here
 			changeTheme(currentTheme);
 		}
 		$(ingredients_search_col_2.parentElement).css("width", currentStage.col2);
@@ -96,20 +110,39 @@ var ingredients_search_stage_functions = {
 			changeTheme(currentTheme);
 		}
 		$(ingredients_search_col_1.parentElement).css("width", currentStage.col1);
-		$(ingredients_search_col_1).click(ingredients_search_stage_functions.stageB);
+		$(button).click(ingredients_search_stage_functions.stageB);
 	}
-
 }
 
 // will rename this later >__>
 function populate_col_1() {
-	var input = document.createElement("input");
-	ingredients_search_col_1.appendChild(input);
-	var button = document.createElement('button');
-	button.innerHTML = 'Search';
-	ingredients_search_col_1.appendChild(button);
+	var title = document.createElement("h5");
+	title.innerHTML = "What's in your pantry today?";
 	
+	ingredients_search_col_1.appendChild(title);
+
+	ingredients_search_col_1.appendChild(input);
+
+	ingredients_search_col_1.appendChild(button);
+
+	input.id = 'ingredient';
+	button.id = 'addIngredient';
+	button.innerHTML = 'Add Ingredient';
+	list.id = 'ingList';
+
+	var addIng = function () {
+		var text = document.getElementById('ingredient').value;
+		var li = document.createElement('li');
+		li.innerHTML = "<label>" + text + "</label>" + 
+		"<button class='delete'>X</button>";
+		document.getElementById('ingList').appendChild(li);
+	}
+
+	document.getElementById('addIngredient').onclick = addIng;
+
+	ingredients_search_col_1.appendChild(list);
 }
+
 
 function ingredients_page_hide() {
 	if(ingredients_search_page != undefined) {
@@ -126,5 +159,7 @@ function ingredients_page_setup() {
 	} 
 	$(ingredients_search_page).css("display", "block");
 }
+
+
 
 // TODO: encapsilate within another structure
