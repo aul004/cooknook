@@ -58,7 +58,7 @@ function signupForm() {
     signupOption.setAttribute("data-toggle", "dropdown");
     signupOption.setAttribute("aria-haspopup", "true");
     signupOption.setAttribute("aria-expanded", "false");
-    signupOption.innerHTML = "Create an Account";
+    signupOption.innerHTML = "Sign Up";
     signupNavItem.appendChild(signupOption);
 
     var signupFormContainer = document.createElement('div');
@@ -102,7 +102,7 @@ function signupForm() {
     signupButton.type = "submit";
     signupButton.style = "margin: auto; background-color: white;";
     signupButton.id = "signupButton";
-    signupButton.innerHTML = "Signup";
+    signupButton.innerHTML = "Create an Account";
     signupForm.appendChild(signupButton);
 
     return signupNavItem;
@@ -113,8 +113,6 @@ function signupLogin() {
     document.getElementById('userInfo').appendChild(loginForm());
     document.getElementById('userInfo').appendChild(signupForm());
 }
-
-
 
 /********** login sign up stuff  ***************/
 
@@ -145,5 +143,5 @@ function logIn() {
 	document.getElementById('userInfo').appendChild(li);
 	document.getElementById('userInfo').appendChild(li2);
 }
+
 signupLogin();
-//$('#userInfo')

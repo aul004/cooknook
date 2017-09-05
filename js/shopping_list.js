@@ -106,41 +106,55 @@ var shopping_list_stage_functions = {
 			changeTheme(currentTheme);
 		}
 		$(shopping_list_col_1.parentElement).css("width", currentStage.col1);
-		$('#shopping_listSearch').click(shopping_list_stage_functions.stageB);
+		//$('#shopping_listSearch').click(shopping_list_stage_functions.stageB);
 	}
 }
 
 // will rename this later >__>
 function shopping_list_populate_col_1() {
 	var title = document.createElement("h5");
-	title.innerHTML = "Shopping List Search?";
+	title.innerHTML = "My Shopping List";
 	var input = document.createElement("input");
-    
-    var button = document.createElement('button');
-    
-    var list = document.createElement('ul');
+	var button = document.createElement('button');
+	var list = document.createElement('ul');
+
 	shopping_list_col_1.appendChild(title);
 
-	shopping_list_col_1.appendChild(input);
+	var img = document.createElement('img');
+	img.src = 'https://d30y9cdsu7xlg0.cloudfront.net/png/16757-200.png';
+	img.height = '100';
+	shopping_list_col_1.appendChild(img); 
 
+	var linebreak = document.createElement("br");
+	shopping_list_col_1.appendChild(linebreak);
+
+	shopping_list_col_1.appendChild(input);
 	shopping_list_col_1.appendChild(button);
 
-	// input.id = 'ingredient';
+	input.id = 'shopIngredient';
 	button.id = 'shopping_listSearch';
-	button.innerHTML = 'Search for My Groups';
-	// list.id = 'ingList';
+	button.innerHTML = 'Add to My List';
+	list.id = 'shoppingList';
 
 	var searchForShoppingLists = function () {
-		var text = document.getElementById('ingredient').value;
+        var text = document.getElementById('shopIngredient').value;
+        if(text.length < 1)
+            return;
 		var li = document.createElement('li');
 		li.innerHTML = "<label>" + text + "</label>" + 
 		"<button class='delete'>X</button>";
-		document.getElementById('ingList').appendChild(li);
+		document.getElementById('shoppingList').appendChild(li);
 	}
 
 	document.getElementById('shopping_listSearch').onclick = searchForShoppingLists;
 
 	shopping_list_col_1.appendChild(list);
+
+var div = document.createElement('div');
+div.innerHTML = '<button>Print List</button> <button>Share List</button> <button>Price Check Ingredients</button>'
+  
+shopping_list_col_1.appendChild(div);
+
 }
 
 
