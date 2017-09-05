@@ -35,19 +35,27 @@ function changeTheme(theme) {
 	switch (theme) {
 		case ingredients_search_theme:
 		recipe_page_hide();
+		social_page_hide();
+		shopping_list_page_hide();
 		ingredients_page_setup();
 		break;
 		case recipe_search_theme:
 		ingredients_page_hide();
+		social_page_hide();
+		shopping_list_page_hide();
 		recipe_page_setup();
 		break;
 		case social_search_theme:
 		recipe_page_hide();
 		ingredients_page_hide();
+		shopping_list_page_hide();
+		social_page_setup();
 		break;
 		case shopping_list_theme:
 		recipe_page_hide();
+		social_page_hide();
 		ingredients_page_hide();
+		shopping_list_page_setup();
 		break;
 		
 		default:
@@ -95,10 +103,15 @@ $('#ingredients_search').click(function(){
 $('#recipe_search').click(function(){
 	removeSplash();
 	changeTheme(recipe_search_theme); 
-	removeSplash();
 });
-$('#social_search').click(function(){changeTheme(social_search_theme);removeSplash();});
-$('#shopping_list').click(function(){changeTheme(shopping_list_theme);removeSplash();});
+$('#social_search').click(function(){
+	removeSplash();
+	changeTheme(social_search_theme);
+});
+$('#shopping_list').click(function(){
+	removeSplash();
+	changeTheme(shopping_list_theme);
+});
 
 window.onresize = function () {
 	resizeDock();
