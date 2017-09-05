@@ -126,6 +126,8 @@ function ingredients_populate_col_1() {
 
 	var addIng = function () {
 		var text = document.getElementById('ingredient').value;
+		if (text.length < 1)
+			return;
 		var li = document.createElement('li');
 		li.innerHTML = "<label>" + text + "</label>" + 
 		"<button class='delete'>X</button>";

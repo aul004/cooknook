@@ -137,7 +137,9 @@ function shopping_list_populate_col_1() {
 	list.id = 'shoppingList';
 
 	var searchForShoppingLists = function () {
-		var text = document.getElementById('shopIngredient').value;
+        var text = document.getElementById('shopIngredient').value;
+        if(text.length < 1)
+            return;
 		var li = document.createElement('li');
 		li.innerHTML = "<label>" + text + "</label>" + 
 		"<button class='delete'>X</button>";
