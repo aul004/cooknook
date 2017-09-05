@@ -25,13 +25,6 @@ var ingredients_search_col_3;
 var ingredients_search_page;
 var queue = true;
 
-var input = document.createElement("input");
-
-var button = document.createElement('button');
-
-var list = document.createElement('ul');
-
-
 var ingredients_search_stage_functions = {
 	// *ingredients + *search results + recipe
 	stageD: function () {
@@ -106,23 +99,24 @@ var ingredients_search_stage_functions = {
 		if(ingredients_search_col_1 == undefined) {
 			ingredients_search_col_1 = generateColumns();
 			ingredients_search_page.append(ingredients_search_col_1.parentElement);
-			populate_col_1();
+			ingredients_populate_col_1();
 			changeTheme(currentTheme);
 		}
 		$(ingredients_search_col_1.parentElement).css("width", currentStage.col1);
-		$(button).click(ingredients_search_stage_functions.stageB);
+		$('#addIngredient').click(ingredients_search_stage_functions.stageB);
 	}
 }
 
 // will rename this later >__>
-function populate_col_1() {
+function ingredients_populate_col_1() {
 	var title = document.createElement("h5");
 	title.innerHTML = "What's in your pantry today?";
 	
+	var input = document.createElement("input");
+	var button = document.createElement('button');
+	var list = document.createElement('ul');
 	ingredients_search_col_1.appendChild(title);
-
 	ingredients_search_col_1.appendChild(input);
-
 	ingredients_search_col_1.appendChild(button);
 
 	input.id = 'ingredient';

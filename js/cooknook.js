@@ -34,15 +34,19 @@ function changeTheme(theme) {
 	$('#LoginForm').css('background-color', theme.dockColor);
 	switch (theme) {
 		case ingredients_search_theme:
+		recipe_page_hide();
 		ingredients_page_setup();
 		break;
 		case recipe_search_theme:
 		ingredients_page_hide();
+		recipe_page_setup();
 		break;
 		case social_search_theme:
+		recipe_page_hide();
 		ingredients_page_hide();
 		break;
 		case shopping_list_theme:
+		recipe_page_hide();
 		ingredients_page_hide();
 		break;
 		
@@ -83,8 +87,16 @@ var currentTheme = default_theme;
 dockToggleButton.onclick = resizeColumnHeight;
 // $('#dock').css('background-color', currentTheme.dockColor);
 changeTheme(currentTheme);
-$('#ingredients_search').click(function(){changeTheme(ingredients_search_theme); ingredients_page_setup();removeSplash();});
-$('#recipe_search').click(function(){changeTheme(recipe_search_theme);removeSplash();});
+$('#ingredients_search').click(function(){
+	removeSplash();
+	changeTheme(ingredients_search_theme); 
+	
+});
+$('#recipe_search').click(function(){
+	removeSplash();
+	changeTheme(recipe_search_theme); 
+	removeSplash();
+});
 $('#social_search').click(function(){changeTheme(social_search_theme);removeSplash();});
 $('#shopping_list').click(function(){changeTheme(shopping_list_theme);removeSplash();});
 
