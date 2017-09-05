@@ -92,6 +92,7 @@ var ingredients_search_stage_functions = {
 			var title = document.createElement("h5");
 			title.innerHTML = "You can make...";
 			ingredients_search_col_2.appendChild(title);
+			//put populate col 2 here
 			changeTheme(currentTheme);
 		}
 		$(ingredients_search_col_2.parentElement).css("width", currentStage.col2);
@@ -133,17 +134,14 @@ function populate_col_1() {
 		var text = document.getElementById('ingredient').value;
 		var li = document.createElement('li');
 		li.innerHTML = "<label>" + text + "</label>" + 
-		"<button class='delete'>Delete</button>";
+		"<button class='delete'>X</button>";
 		document.getElementById('ingList').appendChild(li);
 	}
 
 	document.getElementById('addIngredient').onclick = addIng;
-	
+
 	ingredients_search_col_1.appendChild(list);
 }
-
-//WORKING ON THIS
-
 
 
 function ingredients_page_hide() {
