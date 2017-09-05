@@ -67,7 +67,7 @@ function generateColumns() {
 	var column = document.createElement('div');
 	column.className = 'column';
 	$(column).css("background-color", currentTheme.mainColor);
-	column.innerText = 'Sample Text\n';
+	// column.innerText = 'Sample Text\n';
 
 	var column_wrapper = document.createElement('div');
 	column_wrapper.className = 'wrapper column_wrapper';
