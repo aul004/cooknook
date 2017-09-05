@@ -60,6 +60,12 @@ var ingredients_search_stage_functions = {
 			var title = document.createElement("h5");
 			title.innerHTML = "Guacamole";
 			ingredients_search_col_3.appendChild(title);
+
+			var rresult = document.createElement("img");
+			rresult.setAttribute("src", "img/rresult.png");
+			rresult.setAttribute("id", "img2");
+
+			ingredients_search_col_3.appendChild(rresult);
 			changeTheme(currentTheme);;
 		}
 
@@ -70,6 +76,8 @@ var ingredients_search_stage_functions = {
 		$(ingredients_search_col_1).click(ingredients_search_stage_functions.stageD);
 		$(ingredients_search_col_2).click(function(){});
 		$(ingredients_search_col_3).click(function(){});
+		$("#img2").click(ingredients_search_stage_functions.stageB);
+		
 	},
 
 	// *ingredients + *search results
@@ -83,14 +91,73 @@ var ingredients_search_stage_functions = {
 			ingredients_search_col_2 = generateColumns();
 			ingredients_search_page.append(ingredients_search_col_2.parentElement);
 			var title = document.createElement("h5");
-			title.innerHTML = "You can make...";
 			ingredients_search_col_2.appendChild(title);
+			title.innerHTML = "Result";
+			
+									
+			var ddbutton1 = document.createElement("div");
+			ddbutton1.setAttribute("class", "btn-group dropdown");
+			ingredients_search_col_2.appendChild(ddbutton1);
+			ddbutton1.innerHTML = "<button class=\"btn btn-secondary dropdown-toggle\" style=\"float:right;\" type=\"button\" id=\"dropdownMenuButton\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">" +
+									"Best Match</button>" +
+		  							"<div class=\"dropdown-menu\" aria-labelledby=\"dropdownMenuButton\">" +
+									"<a class=\"dropdown-item\" href=\"#\">1</a>" +
+									"<a class=\"dropdown-item\" href=\"#\">2</a>" +
+									"<a class=\"dropdown-item\" href=\"#\">3</a>" +
+									  "</div>";
+
+			var ddbutton2 = document.createElement("div");
+			ddbutton2.setAttribute("class", "btn-group dropdown");
+			ingredients_search_col_2.appendChild(ddbutton2);
+			ddbutton2.innerHTML = "<button class=\"btn btn-secondary dropdown-toggle\" style=\"float:right;\" type=\"button\" id=\"dropdownMenuButton\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">" +
+									"All Cuisines</button>" +
+		  							"<div class=\"dropdown-menu\" aria-labelledby=\"dropdownMenuButton\">" +
+									"<a class=\"dropdown-item\" href=\"#\">1</a>" +
+									"<a class=\"dropdown-item\" href=\"#\">2</a>" +
+									"<a class=\"dropdown-item\" href=\"#\">3</a>" +
+									  "</div>";
+									  
+			var ddbutton3 = document.createElement("div");
+			ddbutton3.setAttribute("class", "btn-group dropdown");
+			ingredients_search_col_2.appendChild(ddbutton3);
+			ddbutton3.innerHTML = "<button class=\"btn btn-secondary dropdown-toggle\" style=\"float:right;\" type=\"button\" id=\"dropdownMenuButton\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">" +
+									"All Types</button>" +
+		  							"<div class=\"dropdown-menu\" aria-labelledby=\"dropdownMenuButton\">" +
+									"<a class=\"dropdown-item\" href=\"#\">1</a>" +
+									"<a class=\"dropdown-item\" href=\"#\">2</a>" +
+									"<a class=\"dropdown-item\" href=\"#\">3</a>" +
+									  "</div>";
+			// var ddbutton2 = document.createElement("div");
+			// filterdiv.appendChild(ddbutton2);
+			// ddbutton2.innerHTML = "<button style=\"float:right;\" class=\"btn btn-primary dropdown-toggle\" type=\"button\" data-toggle=\"dropdown\">Filter 1" + 
+			// 					  "<span class=\"caret\"></span></button>" + 
+			// 					  "<ul class=\"dropdown-menu\">" +
+			//   					  "<li><a href=\"#\">HTML</a></li>" +
+			//                       "<li><a href=\"#\">CSS</a></li>" +
+			//   					  "<li><a href=\"#\">JavaScript</a></li>" +
+			// 						"</ul>";
+									
+			// var ddbutton3 = document.createElement("div");
+			// filterdiv.appendChild(ddbutton3);
+			// ddbutton3.innerHTML = "<button style=\"float:right;\" class=\"btn btn-primary dropdown-toggle\" type=\"button\" data-toggle=\"dropdown\">Filter 1" + 
+			// 					  "<span class=\"caret\"></span></button>" + 
+			// 					  "<ul class=\"dropdown-menu\">" +
+			//   					  "<li><a href=\"#\">HTML</a></li>" +
+			//                       "<li><a href=\"#\">CSS</a></li>" +
+			//   					  "<li><a href=\"#\">JavaScript</a></li>" +
+			//   					  "</ul>";
 			//put populate col 2 here
+
+			var iresult = document.createElement("img");
+			iresult.setAttribute("src", "img/iresult.PNG");
+			iresult.setAttribute("id", "img1");
+
+			ingredients_search_col_2.appendChild(iresult);
 			changeTheme(currentTheme);
 		}
 		$(ingredients_search_col_2.parentElement).css("width", currentStage.col2);
 		$(ingredients_search_col_1).click(ingredients_search_stage_functions.stageB);
-		$(ingredients_search_col_2).click(ingredients_search_stage_functions.stageC);
+		$('#img1').click(ingredients_search_stage_functions.stageC);
 	},
 
 	// ingredients search splash
