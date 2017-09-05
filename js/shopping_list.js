@@ -122,6 +122,7 @@ function shopping_list_populate_col_1() {
 
 	var img = document.createElement('img');
 	img.src = 'https://d30y9cdsu7xlg0.cloudfront.net/png/16757-200.png';
+	img.height = '100';
 	shopping_list_col_1.appendChild(img); 
 
 	var linebreak = document.createElement("br");
@@ -146,6 +147,11 @@ function shopping_list_populate_col_1() {
 	document.getElementById('shopping_listSearch').onclick = searchForShoppingLists;
 
 	shopping_list_col_1.appendChild(list);
+
+var div = document.createElement('div');
+div.innerHTML = '<button>Print List</button> <button>Share List</button> <button>Price Check Ingredients</button>'
+  
+shopping_list_col_1.appendChild(div);
 
 }
 
