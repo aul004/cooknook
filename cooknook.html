@@ -18,16 +18,16 @@
             <!-- <a class="navbar-brand" href="#"><img src="img/logo.jpg" width="100px"></img></a> -->
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav mr-auto"></ul>
-                <ul class="navbar-nav" style="top:0px">
+                <ul class="navbar-nav" style="top:0px" id='userInfo'>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="Login" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
                             Login
                         </a>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink" id="LoginForm">
                             <form class="form-inline" style="padding: 5px">
-                                <input class="form-control mr-sm-2" type="text" placeholder="Username" >
+                                <input class="form-control mr-sm-2" type="text" id="loginUsername" placeholder="Username" >
                                 <input class="form-control mr-sm-2" type="password" placeholder="Password">
-                                <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style="margin: auto; background-color: white;">Login</button>
+                                <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style="margin: auto; background-color: white;" id="loginButton">Login</button>
                             </form>
                         </div>
                     </li>
@@ -41,7 +41,7 @@
                                 <input class="form-control mr-sm-2" type="password" placeholder="Password">
                                 <input class="form-control mr-sm-2" type="password" placeholder="Confirm Password">
                                 <input class="form-control mr-sm-2" type="date" placeholder="Email Address">
-                                <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style="margin: auto; background-color: white;">Sign Up</button>
+                                <button class="btn btn-outline-success my-2 my-sm-0" type="submit" style="margin: auto; background-color: white;" id="signUpButton">Sign Up</button>
                             </form>
                         </div>
                     </li>
