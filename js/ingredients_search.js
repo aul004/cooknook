@@ -90,7 +90,7 @@ var ingredients_search_stage_functions = {
 		if(ingredients_search_col_2 == undefined){
 			ingredients_search_col_2 = generateColumns();
 			ingredients_search_page.append(ingredients_search_col_2.parentElement);
-			var title = document.createElement("h5");
+			var title = document.createElement("h3");
 			ingredients_search_col_2.appendChild(title);
 			title.innerHTML = "Result";
 			
@@ -176,15 +176,34 @@ var ingredients_search_stage_functions = {
 
 // will rename this later >__>
 function ingredients_populate_col_1() {
-	var title = document.createElement("h5");
+	var title = document.createElement("h3");
 	title.innerHTML = "What's in your pantry today?";
+
 	
 	var input = document.createElement("input");
 	var button = document.createElement('button');
 	var list = document.createElement('ul');
+
+	input.style.height="50px";
+	input.style.width="60%";
+	input.style.fontSize="14pt";
+
+	title.style.paddingTop="20%";
+
 	ingredients_search_col_1.appendChild(title);
 	ingredients_search_col_1.appendChild(input);
-	ingredients_search_col_1.appendChild(button);
+	// ingredients_search_col_1.appendChild(button);
+
+	input.style.marginTop="30px";
+
+	var searchdiv = document.createElement("div");
+	searchdiv.setAttribute("class", "container");
+
+	searchdiv.appendChild(button);
+
+	ingredients_search_col_1.appendChild(searchdiv);
+
+	searchdiv.style.marginTop="20px";
 
 	input.id = 'ingredient';
 	button.id = 'addIngredient';
@@ -199,6 +218,7 @@ function ingredients_populate_col_1() {
 		li.innerHTML = "<label>" + text + "</label>" + 
 		"<button class='delete'>X</button>";
 		document.getElementById('ingList').appendChild(li);
+		document.getElementById("ingredient").value = '';
 	}
 
 	document.getElementById('addIngredient').onclick = addIng;

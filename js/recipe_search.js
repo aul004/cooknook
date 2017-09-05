@@ -64,9 +64,18 @@ var recipe_search_stage_functions = {
 		if(recipe_search_col_3 == undefined) {
 			recipe_search_col_3 = generateColumns();
 			recipe_search_page.append(recipe_search_col_3.parentElement);
-			var title = document.createElement("h5");
+			var title = document.createElement("h3");
 			title.innerHTML = "Guacamole";
+
+			var rresult = document.createElement("img");
+			rresult.setAttribute("src", "img/recipe2.png");
+
+			rresult.style.width="90%";
+			
+
 			recipe_search_col_3.appendChild(title);
+
+			recipe_search_col_3.appendChild(rresult);
 			changeTheme(currentTheme);;
 		}
 
@@ -77,6 +86,7 @@ var recipe_search_stage_functions = {
 		$(recipe_search_col_1).click(recipe_search_stage_functions.stageD);
 		$(recipe_search_col_2).click(function(){});
 		$(recipe_search_col_3).click(function(){});
+		$(rresult).click(recipe_search_stage_functions.stageB)
 	},
 
 	// *recipe + *search results
@@ -89,15 +99,75 @@ var recipe_search_stage_functions = {
 		if(recipe_search_col_2 == undefined){
 			recipe_search_col_2 = generateColumns();
 			recipe_search_page.append(recipe_search_col_2.parentElement);
-			var title = document.createElement("h5");
-			title.innerHTML = "You can make...";
+			var title = document.createElement("h3");
+			title.innerHTML = "Recipes Found:";
 			recipe_search_col_2.appendChild(title);
 			//put populate col 2 here
+
+			var rbtn1 = document.createElement("div");
+			rbtn1.setAttribute("class", "btn-group dropdown");
+			recipe_search_col_2.appendChild(rbtn1);
+			rbtn1.innerHTML = "<button class=\"btn btn-secondary dropdown-toggle\" style=\"float:right;\" type=\"button\" id=\"dropdownMenuButton\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">" +
+									"Cuisine</button>" +
+		  							"<div class=\"dropdown-menu\" aria-labelledby=\"dropdownMenuButton\">" +
+									"<a class=\"dropdown-item\" href=\"#\">USA</a>" +
+									"<a class=\"dropdown-item\" href=\"#\">Italy</a>" +
+									"<a class=\"dropdown-item\" href=\"#\">China</a>" +
+									"<a class=\"dropdown-item\" href=\"#\">Greek</a>" +
+									  "</div>";
+
+			var rbtn2 = document.createElement("div");
+			rbtn2.setAttribute("class", "btn-group dropdown");
+			recipe_search_col_2.appendChild(rbtn2);
+			rbtn2.innerHTML = "<button class=\"btn btn-secondary dropdown-toggle\" style=\"float:right;\" type=\"button\" id=\"dropdownMenuButton\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">" +
+									"Style</button>" +
+		  							"<div class=\"dropdown-menu\" aria-labelledby=\"dropdownMenuButton\">" +
+									"<a class=\"dropdown-item\" href=\"#\">Grilled</a>" +
+									"<a class=\"dropdown-item\" href=\"#\">Fried</a>" +
+									"<a class=\"dropdown-item\" href=\"#\">Steamed</a>" +
+									"<a class=\"dropdown-item\" href=\"#\">Baked</a>" +
+									  "</div>";
+
+			var rbtn3 = document.createElement("div");
+			rbtn3.setAttribute("class", "btn-group dropdown");
+			recipe_search_col_2.appendChild(rbtn3);
+			rbtn3.innerHTML = "<button class=\"btn btn-secondary dropdown-toggle\" style=\"float:right;\" type=\"button\" id=\"dropdownMenuButton\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">" +
+									"Minutes</button>" +
+		  							"<div class=\"dropdown-menu\" aria-labelledby=\"dropdownMenuButton\">" +
+									"<a class=\"dropdown-item\" href=\"#\"><10</a>" +
+									"<a class=\"dropdown-item\" href=\"#\"><20</a>" +
+									"<a class=\"dropdown-item\" href=\"#\"><30</a>" +
+									"<a class=\"dropdown-item\" href=\"#\"><45</a>" +
+									  "</div>";
+
+			var rbtn4 = document.createElement("div");
+			rbtn4.setAttribute("class", "btn-group dropdown");
+			recipe_search_col_2.appendChild(rbtn4);
+			rbtn4.innerHTML = "<button class=\"btn btn-secondary dropdown-toggle\" style=\"float:right;\" type=\"button\" id=\"dropdownMenuButton\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">" +
+									"Calories</button>" +
+		  							"<div class=\"dropdown-menu\" aria-labelledby=\"dropdownMenuButton\">" +
+									"<a class=\"dropdown-item\" href=\"#\"><100</a>" +
+									"<a class=\"dropdown-item\" href=\"#\"><3002</a>" +
+									"<a class=\"dropdown-item\" href=\"#\"><500</a>" +
+									"<a class=\"dropdown-item\" href=\"#\"><800</a>" +
+									  "</div>";
+
+			var imgdiv = document.createElement("div");
+			imgdiv.setAttribute("class", "container");
+			var reresult = document.createElement("img");
+			reresult.setAttribute("src", "img/reresult.png");
+			reresult.style.width="90%";
+			imgdiv.style.marginTop="5%";
+			imgdiv.appendChild(reresult);
+			recipe_search_col_2.appendChild(imgdiv);
+
+
+
 			changeTheme(currentTheme);
 		}
 		$(recipe_search_col_2.parentElement).css("width", currentStage.col2);
 		$(recipe_search_col_1).click(recipe_search_stage_functions.stageB);
-		$(recipe_search_col_2).click(recipe_search_stage_functions.stageC);
+		$(imgdiv).click(recipe_search_stage_functions.stageC);
 	},
 
 	// recipe search splash
@@ -116,14 +186,30 @@ var recipe_search_stage_functions = {
 
 // will rename this later >__>
 function recipe_populate_col_1() {
-	var title = document.createElement("h5");
-	title.innerHTML = "Recipe Search?";
+	var title = document.createElement("h1");
+	title.innerHTML = "Recipe Search";
+
+	// input.setAttribute("id", "textfield");
+	input.style.height="50px";
+	input.style.width="60%";
+	input.style.fontSize="14pt";
+
+	title.style.paddingTop="20%";
 	
 	recipe_search_col_1.appendChild(title);
 
 	recipe_search_col_1.appendChild(input);
 
-	recipe_search_col_1.appendChild(button);
+	input.style.marginTop="30px";
+
+	var searchdiv = document.createElement("div");
+	searchdiv.setAttribute("class", "container");
+
+	searchdiv.appendChild(button);
+
+	recipe_search_col_1.appendChild(searchdiv);
+
+	searchdiv.style.marginTop="20px";
 
 	// input.id = 'ingredient';
 	// button.id = 'addIngredient';
@@ -138,7 +224,7 @@ function recipe_populate_col_1() {
 		document.getElementById('ingList').appendChild(li);
 	}
 
-	document.getElementById('addIngredient').onclick = searchForRecipes;
+	button.onclick = searchForRecipes;
 
 	recipe_search_col_1.appendChild(list);
 }
