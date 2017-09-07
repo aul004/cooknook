@@ -1,5 +1,5 @@
 var logo = document.createElement('img');
-logo.src = 'img/logo.jpg';
+logo.src = 'img/cooknook_Logo.png';
 logo.width = 700;
 
 document.getElementById('page_viewer').appendChild(logo);

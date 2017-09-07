@@ -57,9 +57,6 @@ var ingredients_search_stage_functions = {
 		if(ingredients_search_col_3 == undefined) {
 			ingredients_search_col_3 = generateColumns();
 			ingredients_search_page.append(ingredients_search_col_3.parentElement);
-			var title = document.createElement("h5");
-			title.innerHTML = "Guacamole";
-			ingredients_search_col_3.appendChild(title);
 
 			var rresult = document.createElement("img");
 			rresult.setAttribute("src", "img/rresult.png");
@@ -92,41 +89,42 @@ var ingredients_search_stage_functions = {
 			ingredients_search_page.append(ingredients_search_col_2.parentElement);
 			var title = document.createElement("h3");
 			ingredients_search_col_2.appendChild(title);
-			title.innerHTML = "Result";
+			title.innerHTML = "You can make...";
 			
-									
+
 			var ddbutton1 = document.createElement("div");
 			ddbutton1.setAttribute("class", "btn-group dropdown");
 			ingredients_search_col_2.appendChild(ddbutton1);
 			ddbutton1.innerHTML = "<button class=\"btn btn-secondary dropdown-toggle\" style=\"float:right;\" type=\"button\" id=\"dropdownMenuButton\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">" +
-									"Best Match</button>" +
-		  							"<div class=\"dropdown-menu\" aria-labelledby=\"dropdownMenuButton\">" +
-									"<a class=\"dropdown-item\" href=\"#\">1</a>" +
-									"<a class=\"dropdown-item\" href=\"#\">2</a>" +
-									"<a class=\"dropdown-item\" href=\"#\">3</a>" +
-									  "</div>";
+			"Best Match</button>" +
+			"<div class=\"dropdown-menu\" aria-labelledby=\"dropdownMenuButton\">" +
+			"<a class=\"dropdown-item\" href=\"#\">Cooking Time</a>" +
+			"<a class=\"dropdown-item\" href=\"#\">Difficulty Level</a>" +
+			"<a class=\"dropdown-item\" href=\"#\">Least Missing Ingredients</a>" +
+			"</div>";
 
 			var ddbutton2 = document.createElement("div");
 			ddbutton2.setAttribute("class", "btn-group dropdown");
 			ingredients_search_col_2.appendChild(ddbutton2);
 			ddbutton2.innerHTML = "<button class=\"btn btn-secondary dropdown-toggle\" style=\"float:right;\" type=\"button\" id=\"dropdownMenuButton\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">" +
-									"All Cuisines</button>" +
-		  							"<div class=\"dropdown-menu\" aria-labelledby=\"dropdownMenuButton\">" +
-									"<a class=\"dropdown-item\" href=\"#\">1</a>" +
-									"<a class=\"dropdown-item\" href=\"#\">2</a>" +
-									"<a class=\"dropdown-item\" href=\"#\">3</a>" +
-									  "</div>";
-									  
+			"All Cuisines</button>" +
+			"<div class=\"dropdown-menu\" aria-labelledby=\"dropdownMenuButton\">" +
+			"<a class=\"dropdown-item\" href=\"#\">Italian</a>" +
+			"<a class=\"dropdown-item\" href=\"#\">German</a>" +
+			"<a class=\"dropdown-item\" href=\"#\">Korean</a>" +
+			"</div>";
+
 			var ddbutton3 = document.createElement("div");
 			ddbutton3.setAttribute("class", "btn-group dropdown");
 			ingredients_search_col_2.appendChild(ddbutton3);
 			ddbutton3.innerHTML = "<button class=\"btn btn-secondary dropdown-toggle\" style=\"float:right;\" type=\"button\" id=\"dropdownMenuButton\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">" +
-									"All Types</button>" +
-		  							"<div class=\"dropdown-menu\" aria-labelledby=\"dropdownMenuButton\">" +
-									"<a class=\"dropdown-item\" href=\"#\">1</a>" +
-									"<a class=\"dropdown-item\" href=\"#\">2</a>" +
-									"<a class=\"dropdown-item\" href=\"#\">3</a>" +
-									  "</div>";
+			"All Types</button>" +
+			"<div class=\"dropdown-menu\" aria-labelledby=\"dropdownMenuButton\">" +
+			"<a class=\"dropdown-item\" href=\"#\">Sandwich</a>" +
+			"<a class=\"dropdown-item\" href=\"#\">Soup</a>" +
+			"<a class=\"dropdown-item\" href=\"#\">Salad</a>" + 
+			"<a class=\"dropdown-item\" href=\"#\">Dessert</a>" +
+			"</div>";
 			// var ddbutton2 = document.createElement("div");
 			// filterdiv.appendChild(ddbutton2);
 			// ddbutton2.innerHTML = "<button style=\"float:right;\" class=\"btn btn-primary dropdown-toggle\" type=\"button\" data-toggle=\"dropdown\">Filter 1" + 
@@ -136,7 +134,7 @@ var ingredients_search_stage_functions = {
 			//                       "<li><a href=\"#\">CSS</a></li>" +
 			//   					  "<li><a href=\"#\">JavaScript</a></li>" +
 			// 						"</ul>";
-									
+
 			// var ddbutton3 = document.createElement("div");
 			// filterdiv.appendChild(ddbutton3);
 			// ddbutton3.innerHTML = "<button style=\"float:right;\" class=\"btn btn-primary dropdown-toggle\" type=\"button\" data-toggle=\"dropdown\">Filter 1" + 
@@ -179,7 +177,6 @@ function ingredients_populate_col_1() {
 	var title = document.createElement("h3");
 	title.innerHTML = "What's in your pantry today?";
 
-	
 	var input = document.createElement("input");
 	var button = document.createElement('button');
 	var list = document.createElement('ul');
@@ -188,7 +185,10 @@ function ingredients_populate_col_1() {
 	input.style.width="60%";
 	input.style.fontSize="14pt";
 
-	title.style.paddingTop="20%";
+	title.style.paddingTop="10%";
+	list.style.paddingTop="2%";
+
+	button.setAttribute("class", "searchbutton");
 
 	ingredients_search_col_1.appendChild(title);
 	ingredients_search_col_1.appendChild(input);
@@ -198,16 +198,14 @@ function ingredients_populate_col_1() {
 
 	var searchdiv = document.createElement("div");
 	searchdiv.setAttribute("class", "container");
-
+	searchdiv.style.marginTop="20px";
 	searchdiv.appendChild(button);
 
 	ingredients_search_col_1.appendChild(searchdiv);
 
-	searchdiv.style.marginTop="20px";
-
 	input.id = 'ingredient';
 	button.id = 'addIngredient';
-	button.innerHTML = 'Add Ingredient';
+	button.innerHTML = 'Add Ingredient +';
 	list.id = 'ingList';
 
 	var addIng = function () {
@@ -224,22 +222,17 @@ function ingredients_populate_col_1() {
 
 		var deleteButton = document.createElement('button');
 		deleteButton.className = 'delete';
-		deleteButton.innerHTML = 'x';
+		deleteButton.innerHTML = '-';
 		deleteButton.onclick = function(){
 			document.getElementById('ingList').removeChild(this.parentElement);
 		}
 		li.appendChild(deleteButton);
-
-		// li.innerHTML = "<label>" + text + "</label>" + 
-		// "<button class='delete'>X</button>";
-		
 	}
 
 	document.getElementById('addIngredient').onclick = addIng;
 
 	ingredients_search_col_1.appendChild(list);
 }
-
 
 function ingredients_page_hide() {
 	if(ingredients_search_page != undefined) {
