@@ -112,51 +112,61 @@ var shopping_list_stage_functions = {
 
 // will rename this later >__>
 function shopping_list_populate_col_1() {
-	var title = document.createElement("h5");
+	var title = document.createElement("h3");
 	title.innerHTML = "My Shopping List";
 	var input = document.createElement("input");
+	input.style.height="30px";
+	input.style.width="30%";
+	input.style.fontSize="12pt";
 	var button = document.createElement('button');
+	button.setAttribute("class", "searchbutton")
 	var list = document.createElement('ul');
-
-	shopping_list_col_1.appendChild(title);
-
+	list.style.paddingTop="2%";
 	var img = document.createElement('img');
 	img.src = 'https://d30y9cdsu7xlg0.cloudfront.net/png/16757-200.png';
 	img.height = '100';
-	shopping_list_col_1.appendChild(img); 
+	img.setAttribute("class", "my-3")
 
 	var linebreak = document.createElement("br");
-	shopping_list_col_1.appendChild(linebreak);
 
+	shopping_list_col_1.appendChild(title);
+	shopping_list_col_1.appendChild(img); 
+	shopping_list_col_1.appendChild(linebreak);
 	shopping_list_col_1.appendChild(input);
 	shopping_list_col_1.appendChild(button);
 
 	input.id = 'shopIngredient';
 	button.id = 'shopping_listSearch';
-	button.innerHTML = 'Add to My List';
+	button.innerHTML = 'Add to List +';
 	list.id = 'shoppingList';
 
 	var searchForShoppingLists = function () {
-        var text = document.getElementById('shopIngredient').value;
-        if(text.length < 1)
-            return;
+		var text = document.getElementById('shopIngredient').value;
+		if(text.length < 1)
+			return;
 		var li = document.createElement('li');
-		li.innerHTML = "<label>" + text + "</label>" + 
-		"<button class='delete'>X</button>";
+		li.innerHTML = "<label>" + text + "</label>";
 		document.getElementById('shoppingList').appendChild(li);
+
+		var deleteButton = document.createElement('button');
+		deleteButton.className = 'delete';
+		deleteButton.innerHTML = 'x';
+		deleteButton.onclick = function(){
+			document.getElementById('shoppingList').removeChild(this.parentElement);
+		}
+		li.appendChild(deleteButton);
+
 	}
 
 	document.getElementById('shopping_listSearch').onclick = searchForShoppingLists;
 
 	shopping_list_col_1.appendChild(list);
 
-var div = document.createElement('div');
-div.innerHTML = '<button>Print List</button> <button>Share List</button> <button>Price Check Ingredients</button>'
-  
-shopping_list_col_1.appendChild(div);
+	var div = document.createElement('div');
+	div.innerHTML = '<button class="searchbutton">Print List</button> <button class="searchbutton">Share List</button> <button class="searchbutton">Price Check Ingredients</button>'
 
+	shopping_list_col_1.appendChild(div);
 }
-
 
 function shopping_list_page_hide() {
 	if(shopping_list_page != undefined) {

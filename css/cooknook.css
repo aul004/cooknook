@@ -9,10 +9,10 @@
 	/* float: left;  */
 }
 
-
 .form-inline {
 	padding: 5px;
 }
+
 .dockbtn {
 	display: inline;
 	height: 100px;
@@ -30,9 +30,9 @@
 
 body {
 	color: white;
-    position: fixed; 
-    overflow: hidden;
-    width: 100%;
+	position: fixed; 
+	overflow: hidden;
+	width: 100%;
 }
 
 #page_viewer {
@@ -48,18 +48,60 @@ body {
 }
 
 .delete {
-    background: red;
-    border-radius: 50%;
+	background: #E3170D;
+	border-radius: 50%;
+	display: inline-block;
+	font-family: "Lato", sans-serif;
+	font-size: 16.5px;
+	margin-left: 5px;
+	padding-right: 10px;
+	padding-left: 10px;
+	border: 0;
+	color: #FFF;
+	cursor: pointer;
+	outline: 0;
 }
 
 li {
 	font-family: 'Lato', sans-serif;
 }
 
-h5 {
+h3 {
 	font-family: 'Lato', sans-serif;
 }
 
-button {
+h4 {
 	font-family: 'Lato', sans-serif;
 }
+
+h5 {
+	font-family: 'Lato', sans-serif;
+}
+button {
+	font-family: 'Lato', sans-serif;
+
+}
+
+.searchbutton {
+	display: inline-block;
+	margin: 0 5px;
+	border-radius: 25px;
+	font-family: "Lato", sans-serif;
+	font-size: 16.5px;
+	padding: 12px 20px;
+	border: 0;
+	background: #9ACD32;
+	color: #FFF;
+	cursor: pointer;
+	outline: 0;
+	padding: 12px 25px;
+
+}
+
+.searchbutton:hover {
+	background: #6B8E23;
+}
+
+
+
+
