@@ -1,3 +1,5 @@
+var loggedIn = false;
+
 function loginForm() {
     var loginNavItem = document.createElement('li');
     loginNavItem.className = "nav-item dropdown";
@@ -112,19 +114,21 @@ function signupLogin() {
     document.getElementById('userInfo').innerHTML = '';
     document.getElementById('userInfo').appendChild(loginForm());
     document.getElementById('userInfo').appendChild(signupForm());
+    loggedIn = false;
 }
+
 
 /********** login sign up stuff  ***************/
 
-function logIn() {
-	var username = document.getElementById('loginUsername').value;
+function logIn(userInputElement=document.getElementById('loginUsername')) {
+	var username = userInputElement.value;
 	if(username.length < 1)
 		return;
     var li = document.createElement('li');
 	li.className = 'nav-item dropdown';
 
 	var a = document.createElement('a');
-	a.innerHTML = username;
+    a.innerHTML = username;
 	a.className = 'nav-link';
 	a.href = '#';
 	li.appendChild(a);
@@ -141,7 +145,8 @@ function logIn() {
 
 	document.getElementById('userInfo').innerHTML = '';
 	document.getElementById('userInfo').appendChild(li);
-	document.getElementById('userInfo').appendChild(li2);
+    document.getElementById('userInfo').appendChild(li2);
+    loggedIn = true;
 }
 
 signupLogin();

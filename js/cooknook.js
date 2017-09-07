@@ -16,6 +16,7 @@ const recipe_search_theme = {
 }
 const social_search_theme = {
 	mainColor: '#6FCBFF',
+	secondaryColor: '#4AAAFF',
 	textColor: '#ffffff',
 	dockColor: '#6FCBFF'
 }
