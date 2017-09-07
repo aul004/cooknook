@@ -147,7 +147,7 @@ var recipe_search_stage_functions = {
 									"Calories</button>" +
 		  							"<div class=\"dropdown-menu\" aria-labelledby=\"dropdownMenuButton\">" +
 									"<a class=\"dropdown-item\" href=\"#\"><100</a>" +
-									"<a class=\"dropdown-item\" href=\"#\"><3002</a>" +
+									"<a class=\"dropdown-item\" href=\"#\"><300</a>" +
 									"<a class=\"dropdown-item\" href=\"#\"><500</a>" +
 									"<a class=\"dropdown-item\" href=\"#\"><800</a>" +
 									  "</div>";
@@ -186,7 +186,7 @@ var recipe_search_stage_functions = {
 
 // will rename this later >__>
 function recipe_populate_col_1() {
-	var title = document.createElement("h1");
+	var title = document.createElement("h3");
 	title.innerHTML = "Recipe Search";
 
 	// input.setAttribute("id", "textfield");
@@ -194,7 +194,7 @@ function recipe_populate_col_1() {
 	input.style.width="60%";
 	input.style.fontSize="14pt";
 
-	title.style.paddingTop="20%";
+	title.style.paddingTop="10%";
 	
 	recipe_search_col_1.appendChild(title);
 
@@ -213,6 +213,7 @@ function recipe_populate_col_1() {
 
 	// input.id = 'ingredient';
 	// button.id = 'addIngredient';
+	button.setAttribute("class", "searchbutton")
 	button.innerHTML = 'Search for Recipes';
 	// list.id = 'ingList';
 
