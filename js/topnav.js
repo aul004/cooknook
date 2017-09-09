@@ -43,7 +43,9 @@ function loginForm() {
     loginButton.style = "margin: auto; background-color: white;";
     loginButton.id = "loginButton";
     loginButton.innerHTML = "Login";
-    $(loginButton).click(logIn);
+    $(loginButton).click(function(){
+        logIn(loginUsernameInput);
+    });
     loginForm.appendChild(loginButton);
 
     return loginNavItem;
@@ -138,7 +140,7 @@ function logIn(userInputElement=document.getElementById('loginUsername')) {
 
 	var a2 = document.createElement('a');
 	a2.innerHTML = 'Logout';
-	a2.className = 'nav-link';
+	a2.className = 'nav-link logout';
     a2.href = '#';
     $(a2).click(signupLogin);
 	li2.appendChild(a2);

@@ -40,8 +40,12 @@ function generateDock() {
     button.setAttribute("aria-controls", "navbarToggleExternalContent");
     button.setAttribute("aria-expanded", "false");
     button.setAttribute("aria-label", "Toggle navigation");
-    button.setAttribute("data-default-text", "Show Menu");
-    button.setAttribute("data-new-text", "Hide Menu");
+    button.innerHTML = 'Hide Menu';
+    $(button).click(function() {
+        this.innerHTML = (this.innerHTML == 'Hide Menu') ? 'Show Menu' : 'Hide Menu';
+    });
+    // button.setAttribute("data-default-text", "Show Menu");
+    // button.setAttribute("data-new-text", "Hide Menu");
     nav.appendChild(button);
 
     document.body.appendChild(dock);
@@ -67,8 +71,5 @@ function buildDockButton(id, innerHTML) {
 function resizeDock() {
     $('#dock').width($('#page_viewer').width() - 70);
 }
-
-
-
-    generateDock();
-    resizeDock();
+generateDock();
+resizeDock();

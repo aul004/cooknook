@@ -8,8 +8,8 @@ var social_stage = {
     },
     stage2: {
 		col1: "30%",
-        col2: "30%",
-        col2: "40%"
+        col2: "15%",
+        col3: "55%"
     }
 }
 
@@ -26,15 +26,17 @@ var social_stage_functions = {
 		if(social_col_3 == undefined) {
 			social_col_3 = generateColumns();
 			social_page.append(social_col_3.parentElement);
-			// social_populate_col_1_menu();
+			social_populate_col_3_recipe();
 			changeTheme(currentTheme);
+        } else {
+            $(social_col_3).css('display', 'block');
         }
         $(social_col_1.parentElement).css("width", currentStage.col1);
         $(social_col_2.parentElement).css("width", currentStage.col2);
         $(social_col_3.parentElement).css("width", currentStage.col3);
-		$('#socialSearch').click(social_stage_functions.stageB);
+		$('#social_search').click(social_stage_functions.stageB);
 	},
-    // 	// social search splash
+    // social search splash
 	stageB: function() {
 		currentStage = social_stage.stage1;
 		if(social_col_1 == undefined) {
@@ -50,10 +52,13 @@ var social_stage_functions = {
             social_populate_col_2_profile();
 			//put populate col 2 here
 			changeTheme(currentTheme);
-		}
+        }
+        if(social_col_3 != undefined) {
+            $(social_col_3).css('display', 'none');
+        }
         $(social_col_1.parentElement).css("width", currentStage.col1);
         $(social_col_2.parentElement).css("width", currentStage.col2);
-		$('#socialSearch').click(social_stage_functions.stageB);
+		$('#social_search').click(social_stage_functions.stageB);
 	},
 
 	// social search splash
@@ -66,16 +71,17 @@ var social_stage_functions = {
 
         if(social_col_1 == undefined) {
 			social_col_1 = generateColumns();
-			social_page.append(social_col_1.parentElement);
-            social_populate_col_1_splash();
-			changeTheme(currentTheme);
+            social_page.append(social_col_1.parentElement);
         }
+        social_populate_col_1_splash();
+        changeTheme(currentTheme);
         $(social_col_1.parentElement).css("width", currentStage.col1);
 	}
 }
 var social_friends_page;
 var social_recipes_page;
 var social_profile_page;
+
 
 function social_friends_page_hide() {
     if(social_friends_page != undefined)
@@ -89,7 +95,21 @@ function social_profile_page_hide() {
     if(social_profile_page != undefined)
         $(social_profile_page).css("display", "none");
 }
+function social_populate_col_3_recipe() {
+    social_col_3.innerHTML = '';
 
+    var recipeImg = document.createElement('img');
+    recipeImg.src = "img/cooknook_recipePage.png";
+    recipeImg.style = "margin: 25px 0px 25px 0px; max-width:100%;"
+    social_col_3.appendChild(recipeImg);
+
+    $('.recipe-box').css('width', 'auto');
+    $('.recipe-box').removeClass('text-left');
+    $('.recipe-box').addClass('text-center');
+
+    $('.recipe_img').css('float', 'none');
+    $('.recipe_img').css('margin', '5px');
+}
 function social_populate_col_2_recipes() {
     social_friends_page_hide();
     social_profile_page_hide();
@@ -130,38 +150,38 @@ function social_populate_col_2_recipes() {
 
         var recipes = [
             {
-                "name": "Minda",
-                "lastCooked": "Chicken Wings",
+                "name": "Wrap",
+                "ratings": "img/cooknook_5star.png",
                 "src": "http://verdecostamesa.com/wp-content/uploads/2017/03/ca-grill-food2-100x100.jpg"
             },
             {
-                "name": "Joanne",
-                "lastCooked": "Chicken Wings",
+                "name": "Pizza",
+                "ratings": "img/cooknook_5star.png",
                 "src": "https://i.pinimg.com/736x/80/3a/ce/803ace870f3e6677d043883994c8d6e5--pizza-coupons-food-coupons.jpg"
             },
             {
-                "name": "Glinda",
-                "lastCooked": "Chicken Feet",
+                "name": "Food",
+                "ratings": "img/cooknook_5star.png",
                 "src": "http://dining.savannahnow.com/sites/dining.savannahnow.com/files/styles/thumbnail/public/field/photos/2568845_web1_sav_052417_onfood-2.jpg"
             },
             {
-                "name": "Jason",
-                "lastCooked": "Chicken Feet",
+                "name": "Soup",
+                "ratings": "img/cooknook_5star.png",
                 "src": "http://www.sbs.com.au/food/sites/sbs.com.au.food/files/styles/thumb_small/public/posole.jpg"
             },
             {
-                "name": "John",
-                "lastCooked": "Chicken Tenders",
+                "name": "Soba",
+                "ratings": "img/cooknook_5star.png",
                 "src": "http://www.sbs.com.au/food/sites/sbs.com.au.food/files/styles/thumb_small/public/41-papayasalad_1.jpg"
             },
             {
                 "name": "Zucchini Boats",
-                "lastCooked": "Chicken Tenders",
+                "ratings": "img/cooknook_5star.png",
                 "src": "http://www.topinspired.com/wp-content/uploads/2017/08/Greek-Quinoa-Grilled-Zucchini-Boats-100x100.jpg"
             },
             {
-                "name": "Belinda",
-                "lastCooked": "Chicken Soup",
+                "name": "Fettuccine Alfredo",
+                "ratings": "img/cooknook_5star.png",
                 "src": "http://dining.savannahnow.com/sites/dining.savannahnow.com/files/styles/thumbnail/public/field/photos/2203750_web1_sav_042617_onfood-1.jpg"
             }
 
@@ -169,44 +189,59 @@ function social_populate_col_2_recipes() {
 
         for (var recipe of recipes) {
             var recipe_box = document.createElement('div');
-            recipe_box.className = 'container recipe-box';
+            recipe_box.className = 'container recipe-box text-left';
             $(recipe_box).click(social_stage_functions.stageC);
             recipe_box.style = "width: 45%;  margin: 10px; background-color: white; float: left; padding: 10px 0px 10px 0px; border-radius: 7px;"
             social_recipes_page.appendChild(recipe_box);
 
+            var recipe_img_container = document.createElement('div');
+            recipe_img_container.className = 'text-center';
+            recipe_box.appendChild(recipe_img_container);
+
             var recipe_img = document.createElement('img');
-            recipe_img.width = 100;
-            recipe_img.height = 100;
+            $(recipe_img).css('max-width', '100%');
             recipe_img.src = recipe.src;
-            recipe_img.style = 'float:left; margin: 0px 20px ';
-            recipe_box.appendChild(recipe_img);
+            recipe_img.style = 'float:left; margin: 0px 20px 0px 10px;';
+            recipe_img.className = 'recipe_img';
+            recipe_img_container.appendChild(recipe_img);
 
             var recipe_description = document.createElement('div');
             recipe_description.style = 'float:left;';
             recipe_box.appendChild(recipe_description);
             
-            var recipe_name = document.createElement('h7');
+            var recipe_name = document.createElement('h6');
             recipe_name.style = 'color: ' + social_search_theme.secondaryColor ;
             recipe_name.innerHTML = recipe.name;
             recipe_description.appendChild(recipe_name);
 
-            recipe_description.appendChild(document.createElement("hr"));
+            var ratings = document.createElement('img');
+            ratings.src = recipe.ratings;
+            $(ratings).css('max-width', '100px');
+            // ratingsTitle.style = 'color: ' + social_search_theme.secondaryColor ;
+            // ratingsTitle.innerHTML = 'Last Cooked:'
+            recipe_description.appendChild(ratings);
 
-            var lastCookedTitle = document.createElement('div');
-            lastCookedTitle.style = 'color: ' + social_search_theme.secondaryColor ;
-            lastCookedTitle.innerHTML = 'Last Cooked:'
-            recipe_description.appendChild(lastCookedTitle);
+            recipe_description.appendChild(document.createElement('br'));
 
-            var lastCooked = document.createElement('div');
-            lastCooked.style = 'color: ' + social_search_theme.secondaryColor ;
-            lastCooked.innerHTML = recipe.lastCooked;
-            recipe_description.appendChild(lastCooked);
+            var btn = document.createElement('img');
+            // btn.style = 'color: ' + social_search_theme.secondaryColor ;
+            $(btn).css('max-width', '100%');
+            btn.src = 'img/ingr_buttons.jpg';
+            recipe_description.appendChild(btn);
 
 
         }
     }
-    else 
+    else {
         $(social_recipes_page).css("display", "block");
+
+        $('.recipe-box').css('width', '45%');
+        $('.recipe-box').addClass('text-left');
+        $('.recipe-box').removeClass('text-center');
+
+        $('.recipe_img').css('float', 'left');
+        $('.recipe_img').css('margin', '0px 20px 0px 10px;');
+    }
 }
 function social_populate_col_2_friends() {
     social_recipes_page_hide();
@@ -409,7 +444,7 @@ function social_populate_col_2_profile() {
 
         var shoppingList = {
             'Guacamole': ['Salsa', 'Lemon', 'Onion'],
-            'Zucchini Sticks' : ['Peanut Butter', 'Zucchini']
+            'Education' : ['UCSD', '']
         }
 
         for(var recipe in shoppingList) {
@@ -459,7 +494,6 @@ function social_populate_col_2_profile() {
     else 
         $(social_profile_page).css("display", "block");
 }
-
 function social_populate_col_1_signup() {
     social_col_1.innerHTML = '';
 
@@ -528,7 +562,6 @@ function social_populate_col_1_signup() {
     signupForm.appendChild(signupButton);
 
 }
-
 function social_populate_col_1_splash() {
     social_col_1.innerHTML = '';
     var header1 = document.createElement('h1');
@@ -588,9 +621,6 @@ function social_populate_col_1_splash() {
     loginForm.appendChild(signupButton);
 
 }
-
-
-// will rename this later >__>
 function social_populate_col_1_menu() {
     social_col_1.innerHTML = '';
 	// var title = document.createElement("h5");
@@ -614,14 +644,14 @@ function social_populate_col_1_menu() {
     var button2 = document.createElement('button');
     button2.style = "width: 100%; border-radius:7px; border:none; margin: 5px 0px 5px 0px; background-color:" + social_search_theme.secondaryColor + ";color:" + social_search_theme.textColor;
     button2.innerHTML = "My Friends";
-    button1.className = "social-menu-btn";
+    button2.className = "social-menu-btn";
     button2.onclick = social_populate_col_2_friends;
     social_col_1.appendChild(button2);
 
     var button3 = document.createElement('button');
     button3.style = "width: 100%; border-radius:7px; border:none; margin: 5px 0px 5px 0px; background-color:" + social_search_theme.secondaryColor + ";color:" + social_search_theme.textColor;
     button3.innerHTML = "My Recipes";
-    button1.className = "social-menu-btn";
+    button2.className = "social-menu-btn";
     button3.onclick = social_populate_col_2_recipes;
     social_col_1.appendChild(button3);
 
@@ -642,6 +672,9 @@ function social_page_setup() {
 		social_page.id = 'social_page';
 		document.getElementById('page_viewer').append(social_page);
 		social_stage_functions.stageA();
-	} 
-	$(social_page).css("display", "block");
+    } 
+    if(loggedIn)
+        social_stage_functions.stageA();
+
+    $(social_page).css("display", "block");
 }
