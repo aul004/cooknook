@@ -33,6 +33,7 @@ function changeTheme(theme) {
 	$('#dock').css('background-color', theme.dockColor);
 	$('#SignupForm').css('background-color', theme.dockColor);
 	$('#LoginForm').css('background-color', theme.dockColor);
+	$('#dockToggleButton').css('background-color', theme.mainColor);
 	switch (theme) {
 		case ingredients_search_theme:
 		recipe_page_hide();
@@ -99,14 +100,6 @@ dockToggleButton.onclick = resizeColumnHeight;
 changeTheme(currentTheme);
 $('#ingredients_search').click(function(){
 	$('.dockbtn').css("border", "none");
-	// $('.dockbtn').mouseover(
-	// 	function() {
-	// 		$(this).css("border", "5px white solid");
-	// 	}).mouseout(
-	// 	function() {
-	// 		$(this).css("border", "none");
-	// 	})
-	// });
 	$(this).css("border", "5px white solid");
 	removeSplash();
 	changeTheme(ingredients_search_theme); 

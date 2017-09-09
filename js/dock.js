@@ -24,6 +24,10 @@ function generateDock() {
     dockButtonsContainer.appendChild(buildDockButton('social_search', 'Social Search', '#6FCBFF'));
     dockButtonsContainer.appendChild(buildDockButton('shopping_list', 'Shopping List', '#FFAAAA'));
 
+    var nbsp = document.createElement('div');
+    nbsp.innerHTML = '&nbsp;';
+    dockButtonsContainer.appendChild(nbsp);
+
     var nav = document.createElement('nav');
     nav.className = "navbar navbar-light fixed-bottom";
     nav.id = "bottom_nav";
@@ -40,6 +44,7 @@ function generateDock() {
     button.setAttribute("aria-controls", "navbarToggleExternalContent");
     button.setAttribute("aria-expanded", "false");
     button.setAttribute("aria-label", "Toggle navigation");
+    $(button).css('border-radius', '7px').css('color', 'white').css('border', 'none');
     button.innerHTML = 'Hide Menu';
     $(button).click(function() {
         this.innerHTML = (this.innerHTML == 'Hide Menu') ? 'Show Menu' : 'Hide Menu';

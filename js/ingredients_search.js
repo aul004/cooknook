@@ -147,7 +147,7 @@ var ingredients_search_stage_functions = {
 			//put populate col 2 here
 
 			var iresult = document.createElement("img");
-			iresult.setAttribute("src", "img/iresult.PNG");
+			iresult.setAttribute("src", "img/iresult.png");
 			iresult.setAttribute("id", "img1");
 
 			ingredients_search_col_2.appendChild(iresult);
