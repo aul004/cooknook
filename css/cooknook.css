@@ -18,10 +18,13 @@
 	height: 100px;
 	width: 100px;
 	border-radius: 50%;
-	border: 1px solid black;
+	border: none;
+	/* border: 1px solid black; */
 	margin: auto;
-	font-family: 'Righteous', cursive;
+	text-shadow: 2px 2px #a1a1a1;
+	/* font-family: 'Righteous', cursive; */
 }
+
 .column_wrapper {
 	padding: 10px;
 	float: left;

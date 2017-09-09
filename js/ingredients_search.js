@@ -212,7 +212,7 @@ function ingredients_populate_col_1() {
 		var text = document.getElementById('ingredient').value;
 		if (text.length < 1)
 			return;
-		var li = document.createElement('li');
+		var li = document.createElement('div');
 		document.getElementById('ingList').appendChild(li);
 		document.getElementById("ingredient").value = '';
 

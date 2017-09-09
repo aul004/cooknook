@@ -444,7 +444,7 @@ function social_populate_col_2_profile() {
 
         var shoppingList = {
             'Guacamole': ['Salsa', 'Lemon', 'Onion'],
-            'Education' : ['UCSD', '']
+            'Wrap': ['Tortilla', 'Lettuce'],
         }
 
         for(var recipe in shoppingList) {

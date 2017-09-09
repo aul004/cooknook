@@ -98,19 +98,35 @@ dockToggleButton.onclick = resizeColumnHeight;
 // $('#dock').css('background-color', currentTheme.dockColor);
 changeTheme(currentTheme);
 $('#ingredients_search').click(function(){
+	$('.dockbtn').css("border", "none");
+	// $('.dockbtn').mouseover(
+	// 	function() {
+	// 		$(this).css("border", "5px white solid");
+	// 	}).mouseout(
+	// 	function() {
+	// 		$(this).css("border", "none");
+	// 	})
+	// });
+	$(this).css("border", "5px white solid");
 	removeSplash();
 	changeTheme(ingredients_search_theme); 
 	
 });
 $('#recipe_search').click(function(){
+	$('.dockbtn').css("border", "none");
+	$(this).css("border", "5px white solid");
 	removeSplash();
 	changeTheme(recipe_search_theme); 
 });
 $('#social_search').click(function(){
+	$('.dockbtn').css("border", "none");
+	$(this).css("border", "5px white solid");
 	removeSplash();
 	changeTheme(social_search_theme);
 });
 $('#shopping_list').click(function(){
+	$('.dockbtn').css("border", "none");
+	$(this).css("border", "5px white solid");
 	removeSplash();
 	changeTheme(shopping_list_theme);
 });

@@ -144,7 +144,7 @@ function shopping_list_populate_col_1() {
 		var text = document.getElementById('shopIngredient').value;
 		if(text.length < 1)
 			return;
-		var li = document.createElement('li');
+		var li = document.createElement('div');
 		li.innerHTML = "<label>" + text + "</label>";
 		document.getElementById('shoppingList').appendChild(li);
 

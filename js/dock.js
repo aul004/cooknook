@@ -19,10 +19,10 @@ function generateDock() {
     dockButtonsContainer.style="width:100%;";
     p4.appendChild(dockButtonsContainer);
 
-    dockButtonsContainer.appendChild(buildDockButton('ingredients_search', 'Ingredients Search'));
-    dockButtonsContainer.appendChild(buildDockButton('recipe_search', 'Recipe Search'));
-    dockButtonsContainer.appendChild(buildDockButton('social_search', 'Social Search'));
-    dockButtonsContainer.appendChild(buildDockButton('shopping_list', 'Shopping List'));
+    dockButtonsContainer.appendChild(buildDockButton('ingredients_search', 'Ingredients Search', '#7CAF7B'));
+    dockButtonsContainer.appendChild(buildDockButton('recipe_search', 'Recipe Search', '#FFD574'));
+    dockButtonsContainer.appendChild(buildDockButton('social_search', 'Social Search', '#6FCBFF'));
+    dockButtonsContainer.appendChild(buildDockButton('shopping_list', 'Shopping List', '#FFAAAA'));
 
     var nav = document.createElement('nav');
     nav.className = "navbar navbar-light fixed-bottom";
@@ -51,7 +51,7 @@ function generateDock() {
     document.body.appendChild(dock);
 }
 
-function buildDockButton(id, innerHTML) {
+function buildDockButton(id, innerHTML, color) {
     var span = document.createElement('span');
     span.className = "col-md-3";
 
@@ -62,6 +62,7 @@ function buildDockButton(id, innerHTML) {
     var button = document.createElement('button');
     button.className = "dockbtn";
     button.id = id;
+    button.style = 'background-color: ' + color + '; color: white;';
     button.innerHTML = innerHTML;
     a.appendChild(button);
 
