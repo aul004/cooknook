@@ -597,7 +597,7 @@ function social_populate_col_1_splash() {
     var loginButton = document.createElement('button');
     // loginButton.className = "btn btn-outline-success my-2 my-sm-0";
     loginButton.type = "submit";
-    loginButton.style = "width: 100%; border-radius:15px; margin: 10px 0px 10px 0px; background-color: " + social_search_theme.secondaryColor;;
+    loginButton.style = "border: none; width: 100%; border-radius:15px; margin: 10px 0px 10px 0px; background-color: " + social_search_theme.secondaryColor;;
     // loginButton.id = "loginButton";
     loginButton.innerHTML = "Login";
     $(loginButton).click(function(){
@@ -613,7 +613,7 @@ function social_populate_col_1_splash() {
     var signupButton = document.createElement('button');
     // loginButton.className = "btn btn-outline-success my-2 my-sm-0";
     signupButton.type = "button";
-    signupButton.style = "width: 100%; border-radius:15px; margin: 10px 0px 10px 0px; background-color: " + social_search_theme.secondaryColor;;
+    signupButton.style = "border: none; width: 100%; border-radius:15px; margin: 10px 0px 10px 0px; background-color: " + social_search_theme.secondaryColor;;
     // loginButton.id = "loginButton";
     signupButton.innerHTML = "Create An Account";
     $(signupButton).click(function(){
