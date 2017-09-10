@@ -254,6 +254,7 @@ function ingredients_populate_col_1_hidden() {
 		
 		var expandBtn = document.createElement('div');
 		expandBtn.innerHTML = '+';
+		$(expandBtn).css('top', '50%')
 		expandBtn.className = 'btn col';
 		ingredients_col1_C.appendChild(expandBtn);
 	}
@@ -333,7 +334,4 @@ function ingredients_page_setup() {
 	} 
 	$(ingredients_search_page).css("display", "block");
 }
-
-
-
 // TODO: encapsilate within another structure

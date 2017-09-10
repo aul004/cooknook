@@ -26,11 +26,12 @@ var social_stage_functions = {
 		if(social_col_3 == undefined) {
 			social_col_3 = generateColumns();
 			social_page.append(social_col_3.parentElement);
-			social_populate_col_3_recipe();
-			changeTheme(currentTheme);
+			// social_populate_col_3_recipe();
+			// changeTheme(currentTheme);
         } else {
             $(social_col_3).css('display', 'block');
         }
+        social_populate_col_3_recipe();
         $(social_col_1.parentElement).css("width", currentStage.col1);
         $(social_col_2.parentElement).css("width", currentStage.col2);
         $(social_col_3.parentElement).css("width", currentStage.col3);
