@@ -188,21 +188,21 @@ function ingredients_search_populate_col_2_recipes() {
 
         for (var recipe of recipes) {
             var recipe_box = document.createElement('div');
-            recipe_box.className = 'container recipe-box text-left';
+            recipe_box.className = 'container ingredients-recipe-box text-left';
             $(recipe_box).click(ingredients_search_stage_functions.stageC);
             recipe_box.style = "width: 45%;  margin: 10px; background-color: white; float: left; padding: 10px 0px 10px 0px; border-radius: 7px; color: " + ingredients_search_theme.mainColor;
             ingredients_col2_BCD.appendChild(recipe_box);
 
-            var recipe_img_container = document.createElement('div');
-            recipe_img_container.className = 'text-center';
-            recipe_box.appendChild(recipe_img_container);
+            var ingredients_recipe_img_container = document.createElement('div');
+            ingredients_recipe_img_container.className = 'text-center';
+            recipe_box.appendChild(ingredients_recipe_img_container);
 
-            var recipe_img = document.createElement('img');
-            $(recipe_img).css('max-width', '100%');
-            recipe_img.src = recipe.src;
-            recipe_img.style = 'float:left; margin: 0px 20px 0px 10px;';
-            recipe_img.className = 'recipe_img';
-            recipe_img_container.appendChild(recipe_img);
+            var ingredients_recipe_img = document.createElement('img');
+            $(ingredients_recipe_img).css('max-width', '100%');
+            ingredients_recipe_img.src = recipe.src;
+            ingredients_recipe_img.style = 'float:left; margin: 0px 20px 0px 10px;';
+            ingredients_recipe_img.className = 'ingredients_recipe_img';
+            ingredients_recipe_img_container.appendChild(ingredients_recipe_img);
 
             var recipe_description = document.createElement('div');
             recipe_description.style = 'float:left;';
@@ -231,19 +231,19 @@ function ingredients_search_populate_col_2_recipes() {
     else {
         $(ingredients_col2_BCD).css("display", "block");
 
-        $('.recipe-box').css('width', '45%');
-        $('.recipe-box').addClass('text-left');
-        $('.recipe-box').removeClass('text-center');
+        $('.ingredients-recipe-box').css('width', '45%');
+        $('.ingredients-recipe-box').addClass('text-left');
+        $('.ingredients-recipe-box').removeClass('text-center');
 
-        $('.recipe_img').css('float', 'left');
-        $('.recipe_img').css('margin', '0px 20px 0px 10px;');
+        $('.ingredients_recipe_img').css('float', 'left');
+        $('.ingredients_recipe_img').css('margin', '0px 20px 0px 10px;');
 	}
 	
 	ingredients_search_col_2.appendChild(ingredients_col2_BCD);
 }
 
 function ingredients_populate_col_1_hidden() {
-	if(ingredients_col1_ABD != undefined && ingredients_col1_ABD.parentElement == ingredients_search_col_1)
+	if(ingredients_col1_ABD != undefined /*&& ingredients_col1_ABD.parentElement == ingredients_search_col_1*/)
 		ingredients_search_col_1.removeChild(ingredients_col1_ABD);
 	if(ingredients_col1_C == undefined) {
 		ingredients_col1_C = document.createElement('div');
@@ -259,7 +259,7 @@ function ingredients_populate_col_1_hidden() {
 	ingredients_search_col_1.appendChild(ingredients_col1_C);
 }
 function ingredients_populate_col_1() {
-	if(ingredients_col1_C != undefined && ingredients_col1_C.parentElement == ingredients_search_col_1)
+if(ingredients_col1_C != undefined /*&& ingredients_col1_C.parentElement == ingredients_search_col_1*/)
 		ingredients_search_col_1.removeChild(ingredients_col1_C);
 	if(ingredients_col1_ABD == undefined) {
 		ingredients_col1_ABD = document.createElement('div');
