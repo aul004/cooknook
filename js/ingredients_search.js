@@ -50,7 +50,6 @@ var ingredients_search_stage_functions = {
 		$(ingredients_search_col_2).click(ingredients_search_stage_functions.stageC);
 		$(ingredients_search_col_3).click(function(){});
 	},
-
 	// ingredients + *search results + *recipe
 	stageC: function() {
 		currentStage = ingredients_search_stage.stage2;
@@ -76,7 +75,6 @@ var ingredients_search_stage_functions = {
 		$(ingredients_search_col_2).click(function(){});
 		$(ingredients_search_col_3).click(function(){});	
 	},
-
 	// *ingredients + *search results
 	stageB: function() {
 		currentStage = ingredients_search_stage.stage1;
@@ -91,7 +89,6 @@ var ingredients_search_stage_functions = {
 		}
 		$(ingredients_search_col_2.parentElement).css("width", currentStage.col2);
 	},
-
 	// ingredients search splash
 	stageA: function() {
 		currentStage = ingredients_search_stage.stage0;
@@ -131,7 +128,7 @@ function ingredients_search_populate_col_2_recipes() {
         ingredients_col2_BCD.appendChild(filterBar);
 
         var filterOptions = {
-            'sort': ['Best Match', 'Cooking Time', 'Difficulty Level', 'Fewest Missing Ingredients'],
+            'sort': ['Best Match', 'Cooking Time', 'Difficulty Level', 'Fewest Missing Ingredients', 'Calories'],
             'cuisine': ['Italian', 'German', 'Korean'],
             'type' : ['Appetizer', 'Soup', 'Salad', 'Entree']
         }
